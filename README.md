@@ -1,6 +1,6 @@
 # RL+LLM City Simulation System
 
-This project implements city-scale agent behaviors for game engine environments using a hybrid RL+LLM approach to build realistic simulations. The goal is to be able to more easily have agents available for simulations for a wide range of purposes, especially in urban and transportation planning and supply chain logistics. I left off Unity development when it became prohibitively expensive, so this codebase may be generally useful for continued work in Unity, or more simplified implementations may be found in my [three-mlagents](https://lukehollis.github.io/three-mlagents/) library, based on the Unity-MLAgents library of similar name.
+This project implements city-scale agent behaviors for game engine environments using a hybrid RL+LLM approach to build realistic simulations. The goal is to be able to more easily have agents available for simulations for a wide range of purposes, especially in urban mobility and transportation planning. I left off Unity development when it became prohibitively expensive, so this codebase may be generally useful for continued work in Unity, or more simplified implementations may be found in my [three-mlagents](https://lukehollis.github.io/three-mlagents/) library, based on the Unity-MLAgents library of similar name.
 
 
 
@@ -11,55 +11,10 @@ _Digital twin of the train system for the Bay Area Rapid Transit Link 21 team._
 Individual characters can be controlled by RL policy, running inference in engine, and interpret and plan actions with a language model, then visualize their inner state in game.
 
 
-## Instatiating Characters in Environments
-
-You can generate a diverse population of characters representing your required demographic landscape based on realworld data inputs. The character creation process synthesizes data from multiple sources, including US Census Bureau demographics, Bureau of Labor Statistics employment data, and local transportation studies.
-
-Each generated character includes contextual details including their personality, age, profession, education level, commute patterns, family relationships, backstory (generalized and with episodic highlights), and other information. 
-
-![NPC Spawn](https://iiif.mused.com/bart_simulation_spawning_npcs.jpg/full/800,/0/default.jpg)
-
-The NPC Spawner Tool provided is an Editor tool that easily allows you to customize your NPC creation process on your navmesh within a bounding box. 
-
-The generation process begins by establishing family units, then populating them with individual characters whose attributes are derived from weighted distributions matching specified input demographics. Educational backgrounds influence personality assignments, while employment roles and industries are selected to mirror the region's actual workforce composition.
-
-## Mode shift
-
-The Mode Shift module simulates how individual agents make transportation choices in urban environments. Each agent uses a multi-factor decision model to choose between available transportation modes (car, public transit, walking, cycling) based on:
-
-* Travel time and distance
-* Cost considerations
-* Weather conditions
-* Individual agent preferences
-* Time of day
-* Current traffic conditions
-* Transit service availability
-
-https://github.com/user-attachments/assets/ae6daae7-9fb0-4321-ac94-e252f89cb40c
-
-Example usage in the BART train system simulation https://github.com/lukehollis/bart-3d
 
 
-### Implementation
-Agents use a combination of:
+<img width="727" height="820" alt="rl_llm_architecture" src="https://github.com/user-attachments/assets/36c57fb0-a1af-4163-98ec-6419e8b6551c" />
 
-* Reinforcement learning policy for immediate reactions to environment changes
-* Slower language model reflection for longer-term transportation planning
-* Historical behavior patterns that influence future choices
-
-
-
-## SEIR Simulation
-
-The SEIR (Susceptible, Exposed, Infectious, Recovered) module integrates epidemiological modeling with agent-based simulation to model disease spread in urban environments. This integration allows for realistic modeling of how transportation patterns and urban mobility affect disease transmission.
-
-https://github.com/user-attachments/assets/38f2ad40-e490-4d00-9eb2-269f6b6e0596
-
-
-
-## Cognitive Architecture
-
-![cognitive_architecture](https://github.com/user-attachments/assets/b823d896-94b3-4d85-9550-dce7df5bfe28)
 
 Inspired by the [CoALA Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427), the NPCs in the simulations build on a similar version of the language agents but only implement the language model for rational reflection on actions inferred from policy--so an impulse from the policy and then reflection from the language model. 
 
