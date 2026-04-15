@@ -13,7 +13,8 @@ Individual characters can be controlled by RL policy, running inference in engin
 
 
 
-<img width="727" height="820" alt="rl_llm_architecture" src="https://github.com/user-attachments/assets/36c57fb0-a1af-4163-98ec-6419e8b6551c" />
+<img width="680" height="900" alt="rl_llm_architecture" src="https://github.com/user-attachments/assets/a9d2ebd1-5be3-48d1-b9ac-5eb2cd984725" />
+
 
 
 Inspired by the [CoALA Cognitive Architectures for Language Agents](https://arxiv.org/abs/2309.02427), the NPCs in the simulations build on a similar version of the language agents but only implement the language model for rational reflection on actions inferred from policy--so an impulse from the policy and then reflection from the language model. 
